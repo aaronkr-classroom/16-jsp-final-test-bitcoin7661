@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="4.0">
+
+  <!-- 보안 제약 사항 설정 -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected Area</web-resource-name>
+      <url-pattern>/secure/*</url-pattern> <!-- /secure 경로 보호 -->
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name> <!-- 사용자 역할 -->
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- 로그인 폼 설정 -->
+  <login-config>
+    <auth-method>FORM</auth-method> <!-- FORM 인증 사용 -->
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page> <!-- 로그인 페이지 -->
+      <form-error-page>/loginError.jsp</form-error-page> <!-- 오류 발생 시 페이지 -->
+    </form-login-config>
+  </login-config>
+
+  <!-- 역할 설정 -->
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+</web-app>
